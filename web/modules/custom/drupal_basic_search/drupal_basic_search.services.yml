@@ -1,0 +1,7 @@
+services:
+  drupal_basic_search.query_parser:
+    class: Drupal\drupal_basic_search\Service\QueryParserService
+
+  drupal_basic_search.search_executor:
+    class: Drupal\drupal_basic_search\Service\SearchExecutorService
+    arguments: ['@entity_type.manager', '@entity.repository', '@date.formatter']

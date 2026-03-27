@@ -1,0 +1,101 @@
+/* SBF-style search bar: appears below the sticky header */
+.search-overlay {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: #edf2f7;
+  padding: 0.85rem 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-120%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.search-overlay.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-overlay__inner {
+  width: min(calc(100% - 2rem), var(--container, 1200px));
+  margin: 0 auto;
+}
+
+.search-overlay__form {
+  display: flex;
+  gap: 0;
+}
+
+.search-overlay__form input {
+  flex: 1;
+  padding: 0.75rem 1.2rem;
+  border: 1px solid #d0d7de;
+  border-right: 0;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #333;
+  background: #fff;
+  outline: none;
+}
+
+.search-overlay__form input:focus {
+  border-color: #00b8d4;
+}
+
+.search-overlay__form input::placeholder {
+  color: #aaa;
+}
+
+.search-overlay__form button {
+  padding: 0.75rem 2.5rem;
+  background: #00b8d4;
+  color: #fff;
+  border: 1px solid #00b8d4;
+  border-radius: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.search-overlay__form button:hover {
+  background: #009db8;
+  border-color: #009db8;
+}
+
+/* Backdrop: invisible click-to-close area below the bar */
+.search-overlay__backdrop {
+  display: none;
+}
+
+.search-overlay.is-open ~ .search-overlay__backdrop-layer {
+  display: block;
+}
+
+/* We use a separate fixed backdrop so clicks outside close the overlay */
+
+@media (max-width: 768px) {
+  .search-overlay {
+    top: 64px;
+  }
+
+  .search-overlay__form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .search-overlay__form input {
+    border-right: 1px solid #d0d7de;
+  }
+
+  .search-overlay__form button {
+    width: 100%;
+  }
+}

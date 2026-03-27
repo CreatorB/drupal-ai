@@ -1,0 +1,80 @@
+{
+  "name": "fxmedia/drupal-ai",
+  "description": "Drupal 11 multisite starter with AI search and personalized recommendations.",
+  "type": "project",
+  "license": "proprietary",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "composer/installers": "^2.3",
+    "drupal/core-composer-scaffold": "^11",
+    "drupal/core-project-message": "^11",
+    "drupal/core-recommended": "^11",
+    "drupal/admin_toolbar": "^3.5",
+    "drupal/field_group": "^3.6",
+    "drupal/metatag": "^2.1",
+    "drupal/paragraphs": "^1.18",
+    "drupal/pathauto": "^1.13",
+    "drupal/search_api": "^1.37",
+    "drupal/search_api_db": "^1.13",
+    "drupal/token": "^1.15",
+    "drupal/views_infinite_scroll": "^2.0",
+    "drupal/webform": "^6.3@beta",
+    "drush/drush": "^13.3"
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "drupal/core-composer-scaffold": true,
+      "drupal/core-project-message": true,
+      "phpstan/extension-installer": true
+    },
+    "sort-packages": true
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "locations": {
+        "web-root": "web/"
+      }
+    },
+    "installer-paths": {
+      "web/core": [
+        "type:drupal-core"
+      ],
+      "web/libraries/{$name}": [
+        "type:drupal-library"
+      ],
+      "web/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "web/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "web/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/Commands/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    },
+    "drupal-core-project-message": {
+      "include-keys": [
+        "homepage",
+        "support"
+      ],
+      "post-create-project-cmd-message": [
+        "<bg=blue;fg=white> Drupal AI multisite scaffold is ready. </>",
+        "Run `ddev start`, `composer install`, then follow INSTALL.md."
+      ]
+    }
+  }
+}

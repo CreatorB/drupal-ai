@@ -1,0 +1,4 @@
+label: 'Dipromosikan ke halaman depan'
+settings:
+  on_label: Pada
+  off_label: Matikan

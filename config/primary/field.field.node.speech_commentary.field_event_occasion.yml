@@ -1,0 +1,19 @@
+uuid: 9950c51c-4273-463e-820b-10320c5c29c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_occasion
+    - node.type.speech_commentary
+id: node.speech_commentary.field_event_occasion
+field_name: field_event_occasion
+entity_type: node
+bundle: speech_commentary
+label: 'Event / Occasion'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

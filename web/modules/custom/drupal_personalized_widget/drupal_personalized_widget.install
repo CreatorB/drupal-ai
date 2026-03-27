@@ -1,0 +1,85 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function drupal_personalized_widget_schema(): array {
+  $schema['user_reading_history'] = [
+    'description' => 'Stores user reading history for recommendations.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'user_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'session_id' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ],
+      'node_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'node_type' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ],
+      'categories' => [
+        'type' => 'text',
+        'size' => 'big',
+      ],
+      'tags' => [
+        'type' => 'text',
+        'size' => 'big',
+      ],
+      'time_spent' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'scroll_depth' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'viewed_at' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'user_id' => ['user_id'],
+      'session_id' => ['session_id'],
+      'node_id' => ['node_id'],
+      'viewed_at' => ['viewed_at'],
+    ],
+  ];
+
+  $schema['article_embeddings'] = [
+    'description' => 'Stores generated embeddings for article similarity.',
+    'fields' => [
+      'node_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'embedding' => [
+        'type' => 'blob',
+        'size' => 'big',
+      ],
+      'generated_at' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['node_id'],
+  ];
+
+  return $schema;
+}

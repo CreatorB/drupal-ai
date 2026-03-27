@@ -1,0 +1,11 @@
+uuid: 5515cfbf-8277-4b4f-bfe5-65ac9928b138
+langcode: en
+status: true
+dependencies: {  }
+name: Event
+type: event
+description: 'Events and training activities.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

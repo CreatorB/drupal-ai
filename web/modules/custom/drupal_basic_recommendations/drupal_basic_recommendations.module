@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Basic recommendations module hooks.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function drupal_basic_recommendations_theme(): array {
+  return [
+    'basic_recommendations_block' => [
+      'variables' => [
+        'items' => [],
+      ],
+      'template' => 'basic-recommendations-block',
+    ],
+  ];
+}

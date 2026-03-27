@@ -1,0 +1,255 @@
+<div class="site-shell site-shell--front">
+  {%- include '@sbf_theme/includes/header-sbf.html.twig' with {
+    brand_markup: 'Drupal<span>AI</span>',
+    nav_items: [
+      { url: '#about', label: 'About' },
+      { url: '#agendas', label: 'Action Agendas' },
+      { url: '#events', label: 'Events' },
+      { url: '#news', label: 'News' },
+      { url: '#membership', label: 'Membership' }
+    ]
+  } only -%}
+
+  <main>
+    <section class="hero-carousel" data-hero-carousel>
+      <div class="hero-carousel__track">
+        <div class="hero-carousel__slide hero-carousel__slide--1 is-active">
+          <div class="hero-carousel__content">
+            <h1>{{ 'Mobilising digital publishing, magnifying content discovery'|t }}</h1>
+            <p>{{ sbf_theme_meta.tagline }}</p>
+          </div>
+        </div>
+        <div class="hero-carousel__slide hero-carousel__slide--2">
+          <div class="hero-carousel__content">
+            <h1>{{ 'AI-powered search across multilingual content'|t }}</h1>
+            <p>{{ 'Natural language understanding for articles, events, and commentary.'|t }}</p>
+          </div>
+        </div>
+        <div class="hero-carousel__slide hero-carousel__slide--3">
+          <div class="hero-carousel__content">
+            <h1>{{ 'Three branded sites from one Drupal 11 codebase'|t }}</h1>
+            <p>{{ 'Domain-based multisite with independent content and configuration.'|t }}</p>
+          </div>
+        </div>
+      </div>
+      <button class="hero-carousel__arrow hero-carousel__arrow--prev" data-hero-prev aria-label="{{ 'Previous slide'|t }}">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="hero-carousel__arrow hero-carousel__arrow--next" data-hero-next aria-label="{{ 'Next slide'|t }}">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      </button>
+      <div class="hero-carousel__dots">
+        <button class="is-active" data-hero-dot="0" aria-label="{{ 'Slide 1'|t }}"></button>
+        <button data-hero-dot="1" aria-label="{{ 'Slide 2'|t }}"></button>
+        <button data-hero-dot="2" aria-label="{{ 'Slide 3'|t }}"></button>
+      </div>
+    </section>
+    <div class="hero-stripe" aria-hidden="true"></div>
+
+    <section class="about-section" id="about">
+      <div class="about-section__inner">
+        <div class="about-section__brand">
+          <div class="about-logo">Drupal<span>AI</span></div>
+          <p>{{ 'DrupalAI Platform built on Drupal 11 multisite architecture for publishing, discovery, and stakeholder engagement.'|t }}</p>
+          <p>{{ 'The primary experience combines publishing, event storytelling, and AI-assisted content discovery in a structure designed to mirror the reference layout closely.'|t }}</p>
+        </div>
+        <div class="about-section__panel">
+          <article class="about-card">
+            <h3>{{ 'Our Vision'|t }}</h3>
+            <p>{{ 'A premium business publishing platform that presents regional insights with clarity, authority, and precision.'|t }}</p>
+          </article>
+          <article class="about-card">
+            <h3>{{ 'Our Mission'|t }}</h3>
+            <p>{{ 'To deliver structured editorial experiences, multilingual readiness, and AI-powered content discovery from one shared Drupal foundation.'|t }}</p>
+          </article>
+          <article class="about-card">
+            <h3>{{ 'Our Approach'|t }}</h3>
+            <p>{{ 'Use a domain-based multisite stack with reusable components so the flagship and satellites stay aligned while retaining their own identity.'|t }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="agendas-section" id="agendas">
+      <div class="container">
+        <div class="section-heading">
+          <p>{{ 'Our Action Agendas'|t }}</p>
+          <h2>{{ 'Platform capability pillars'|t }}</h2>
+        </div>
+        <div class="agendas-grid">
+          <article class="agenda-card"><div class="agenda-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 1 9l4 2.4V17l7 5 7-5v-5.6L23 9 12 2Zm0 2.3L19.5 9 12 13.7 4.5 9 12 4.3Z"/></svg></div><h3>{{ 'Executive Publishing'|t }}</h3><p>{{ 'Structured articles, speeches, and press releases for polished stakeholder communication.'|t }}</p></article>
+          <article class="agenda-card"><div class="agenda-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 7h16v2H4V7Zm0 4h16v2H4v-2Zm0 4h10v2H4v-2Z"/></svg></div><h3>{{ 'Member Engagement'|t }}</h3><p>{{ 'Event-driven journeys, campaign moments, and clear calls to action across the platform.'|t }}</p></article>
+          <article class="agenda-card"><div class="agenda-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 10.1h-6.8l2.7-2.8A6.5 6.5 0 1 0 16 16.7l-1.2-1.2A4.8 4.8 0 1 1 17.2 9h3.8v1.1Z"/></svg></div><h3>{{ 'AI Discovery'|t }}</h3><p>{{ 'Natural language search turns broad business questions into relevant content results.'|t }}</p></article>
+          <article class="agenda-card"><div class="agenda-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9Zm0 2v14A7 7 0 0 1 12 5Z"/></svg></div><h3>{{ 'Regional Readiness'|t }}</h3><p>{{ 'Multilingual architecture prepared for English, Indonesian, and future expansion.'|t }}</p></article>
+          <article class="agenda-card"><div class="agenda-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10Zm10 8h8V11h-8v10ZM3 21h8v-6H3v6Zm10-18v6h8V3h-8Z"/></svg></div><h3>{{ 'Multisite Governance'|t }}</h3><p>{{ 'Three branded sites served from one codebase with independent content and configuration.'|t }}</p></article>
+          <article class="agenda-card"><div class="agenda-card__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 5.5A7.5 7.5 0 0 0 6.9 16.1L3 20l1.4 1.4 3.9-3.9A7.5 7.5 0 1 0 17.5 5.5Z"/></svg></div><h3>{{ 'Smart Recommendations'|t }}</h3><p>{{ 'Personalised reading journeys help surface relevant content after each interaction.'|t }}</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="events-section" id="events">
+      <div class="container">
+        <div class="events-section__head">
+          <div>
+            <p class="section-eyebrow">{{ 'Activities . Training'|t }}</p>
+            <h2 class="events-title">{{ 'Events'|t }}</h2>
+          </div>
+          <div class="tab-bar" data-tab-group>
+            <button class="is-active" data-tab-target="events" type="button">{{ 'Events'|t }}</button>
+            <button data-tab-target="training" type="button">{{ 'Training'|t }}</button>
+          </div>
+        </div>
+        <div class="tab-panels">
+          <div class="tab-panel is-active" data-tab-panel="events">
+            <div class="events-carousel-wrap">
+              <button class="carousel-arrow carousel-arrow--prev" data-carousel-prev aria-label="{{ 'Previous'|t }}">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+              </button>
+              <div class="events-carousel-track" data-carousel-track>
+                {% for item in front_sections.events %}
+                  <article class="event-card-sbf">
+                    <div class="event-card-sbf__img">
+                      <span class="card-logo">Drupal<span>AI</span></span>
+                      <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    </div>
+                    <div class="event-card-sbf__body">
+                      <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                      <p class="meta">{{ item.date }}{% if item.location %} | {{ item.location }}{% endif %}</p>
+                    </div>
+                  </article>
+                {% else %}
+                  <article class="event-card-sbf">
+                    <div class="event-card-sbf__img"><span class="card-logo">Drupal<span>AI</span></span></div>
+                    <div class="event-card-sbf__body"><h3>{{ 'No events yet'|t }}</h3></div>
+                  </article>
+                {% endfor %}
+              </div>
+              <button class="carousel-arrow carousel-arrow--next" data-carousel-next aria-label="{{ 'Next'|t }}">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="tab-panel" data-tab-panel="training">
+            <div class="events-carousel-wrap">
+              <button class="carousel-arrow carousel-arrow--prev" data-carousel-prev aria-label="{{ 'Previous'|t }}">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+              </button>
+              <div class="events-carousel-track" data-carousel-track>
+                {% for item in front_sections.training %}
+                  <article class="event-card-sbf">
+                    <div class="event-card-sbf__img"><span class="card-logo">Drupal<span>AI</span></span></div>
+                    <div class="event-card-sbf__body">
+                      <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                      <p class="meta">{{ item.date }}{% if item.location %} | {{ item.location }}{% endif %}</p>
+                    </div>
+                  </article>
+                {% else %}
+                  <article class="event-card-sbf">
+                    <div class="event-card-sbf__img"><span class="card-logo">Drupal<span>AI</span></span></div>
+                    <div class="event-card-sbf__body"><h3>{{ 'No training events'|t }}</h3></div>
+                  </article>
+                {% endfor %}
+              </div>
+              <button class="carousel-arrow carousel-arrow--next" data-carousel-next aria-label="{{ 'Next'|t }}">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.25rem;">
+          <div class="carousel-dots"><span class="is-active"></span><span></span><span></span></div>
+          <a class="btn-see-all" href="/admin/content">{{ 'See all events'|t }}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ad-banner">
+      <div class="ad-banner__inner">
+        <h2>{{ 'For advertising enquiries'|t }}</h2>
+        <p>{{ 'Reach executives, partners, and decision-makers across this digital platform'|t }}</p>
+        <a class="btn-outline-white" href="/ai-search">{{ 'Search with AI'|t }}</a>
+      </div>
+    </section>
+
+    <section class="news-section-sbf" id="news">
+      <div class="container">
+        <div class="news-section-sbf__head">
+          <div>
+            <p class="section-eyebrow">{{ 'Highlights . Updates'|t }}</p>
+            <h2 class="news-title">{{ 'News'|t }}</h2>
+          </div>
+          <p>{{ 'Editorial highlights, speeches, and business updates presented in a wide carousel with three visible cards by default.'|t }}</p>
+        </div>
+      </div>
+      <div class="news-carousel-wrap">
+        <button class="carousel-arrow carousel-arrow--prev" data-carousel-prev aria-label="{{ 'Previous'|t }}"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+        <div class="news-carousel-track" data-carousel-track>
+          {% for item in front_sections.press_releases %}
+            <article class="news-card-sbf">
+              <div class="news-card-sbf__img news-card-sbf__img--press"><span class="card-logo">Drupal<span>AI</span></span></div>
+              <div class="news-card-sbf__body"><span class="type-label">{{ 'Press Releases'|t }}</span><h3>{{ item.title }}</h3><a class="card-cta" href="{{ item.url }}" aria-label="{{ 'Read more'|t }}"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a></div>
+            </article>
+          {% endfor %}
+          {% for item in front_sections.speeches %}
+            <article class="news-card-sbf">
+              <div class="news-card-sbf__img news-card-sbf__img--speech"><span class="card-logo">Drupal<span>AI</span></span></div>
+              <div class="news-card-sbf__body"><span class="type-label">{{ 'Speeches'|t }}</span><h3>{{ item.title }}</h3><a class="card-cta" href="{{ item.url }}" aria-label="{{ 'Read more'|t }}"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a></div>
+            </article>
+          {% endfor %}
+          {% for item in front_sections.articles %}
+            <article class="news-card-sbf">
+              <div class="news-card-sbf__img news-card-sbf__img--article"><span class="card-logo">Drupal<span>AI</span></span></div>
+              <div class="news-card-sbf__body"><span class="type-label">{{ 'Articles'|t }}</span><h3>{{ item.title }}</h3><a class="card-cta" href="{{ item.url }}" aria-label="{{ 'Read more'|t }}"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a></div>
+            </article>
+          {% endfor %}
+        </div>
+        <button class="carousel-arrow carousel-arrow--next" data-carousel-next aria-label="{{ 'Next'|t }}"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></button>
+      </div>
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;margin-top:1.25rem;">
+        <div class="carousel-dots"><span class="is-active"></span><span></span><span></span></div>
+        <a class="btn-see-all" href="/admin/content">{{ 'See all news'|t }}</a>
+      </div>
+    </section>
+
+    <section class="membership-section-sbf" id="membership">
+      <div class="membership-section-sbf__inner">
+        <div class="membership-section-sbf__copy">
+          <h2>{{ 'Membership'|t }}</h2>
+          <details class="accordion-item" open>
+            <summary>{{ 'Expand your network and partnership opportunities'|t }} <svg class="accordion-chevron" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></summary>
+            <p>{{ 'Connect with organisations across the region through a shared content platform and collaborative publishing network.'|t }}</p>
+          </details>
+          <details class="accordion-item">
+            <summary>{{ 'Build new capabilities and enhance existing competencies'|t }} <svg class="accordion-chevron" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></summary>
+            <p>{{ 'Access training events, workshops, and knowledge resources published across the multisite platform.'|t }}</p>
+          </details>
+          <details class="accordion-item">
+            <summary>{{ 'Engage actively and advocate collectively'|t }} <svg class="accordion-chevron" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></summary>
+            <p>{{ 'Participate in events, contribute commentary, and leverage the platform for stakeholder engagement.'|t }}</p>
+          </details>
+          <details class="accordion-item">
+            <summary>{{ 'Access global markets and tap overseas connections'|t }} <svg class="accordion-chevron" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></summary>
+            <p>{{ 'Leverage AI-assisted discovery and personalised recommendations to stay informed on regional developments.'|t }}</p>
+          </details>
+          <a class="btn-learn-more" href="/about">{{ 'Learn more'|t }}</a>
+        </div>
+        <div class="membership-section-sbf__visual" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  {%- include '@sbf_theme/includes/footer-sbf.html.twig' with {
+    footer_about_url: '#about',
+    footer_secondary_url: '#events',
+    footer_secondary_label: 'Events',
+    footer_news_url: '#news',
+    footer_news_label: 'Newsroom',
+    footer_email_id: 'footer-email'
+  } only -%}
+
+  {% if enable_ai_chat_widget %}
+    {% include '@sbf_theme/includes/chat-widget.html.twig' %}
+  {% endif %}
+
+  {% include '@sbf_theme/includes/search-overlay.html.twig' %}
+</div>

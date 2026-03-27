@@ -1,0 +1,11 @@
+uuid: 595a0971-6ad0-4f83-bd69-02c3d1cb1e24
+langcode: en
+status: true
+dependencies: {  }
+name: 'Press Release'
+type: press_release
+description: 'Official media and announcement content.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

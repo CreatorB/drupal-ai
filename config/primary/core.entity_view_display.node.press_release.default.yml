@@ -1,0 +1,60 @@
+uuid: 189d0cdd-bb7a-431e-8c4f-3b315862c180
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.press_release.field_contact_person
+    - field.field.node.press_release.field_media_files
+    - field.field.node.press_release.field_press_category
+    - field.field.node.press_release.field_release_date
+    - node.type.press_release
+  module:
+    - datetime
+    - file
+    - user
+id: node.press_release.default
+targetEntityType: node
+bundle: press_release
+mode: default
+content:
+  field_contact_person:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_media_files:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_press_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_release_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

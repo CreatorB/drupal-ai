@@ -1,0 +1,134 @@
+<div class="site-shell site-shell--front">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/">{{ site_name ?: 'FXMedia Tech' }}</a>
+      <nav class="site-nav" aria-label="{{ 'Primary navigation'|t }}">
+        <a href="#articles">{{ 'Articles'|t }}</a>
+        <a href="#news">{{ 'News'|t }}</a>
+        <a href="#events">{{ 'Events'|t }}</a>
+        <a href="/ai-search">{{ 'AI Search'|t }}</a>
+        <a href="#about">{{ 'About'|t }}</a>
+      </nav>
+      <button class="site-nav-toggle" type="button" data-nav-toggle>{{ 'Menu'|t }}</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section hero-section--centered">
+      <div class="hero-section__content">
+        <p class="hero-section__eyebrow">{{ 'Technology & Innovation'|t }}</p>
+        <h1>{{ 'Cloud, AI, and engineering insights for Southeast Asia.'|t }}</h1>
+        <p>{{ sbf_theme_meta.tagline }}</p>
+        <form class="hero-search" action="/ai-search" method="get">
+          <label class="visually-hidden" for="hero-search-input">{{ 'Search'|t }}</label>
+          <input id="hero-search-input" type="search" name="q" placeholder="{{ 'Search programming, cloud, AI, security topics...'|t }}">
+          <button type="submit">{{ 'Search with AI'|t }}</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section-container" id="articles">
+      <div class="container">
+        <div class="section-heading">
+          <p>{{ 'Featured'|t }}</p>
+          <h2>{{ 'Latest insights'|t }}</h2>
+        </div>
+      </div>
+      <div class="container">
+        <div class="card-scroll">
+          {% for item in front_sections.articles %}
+            <article class="scroll-card">
+              <span>{{ item.eyebrow }}</span>
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              <p>{{ item.summary }}</p>
+              <time>{{ item.date }}</time>
+            </article>
+          {% else %}
+            <article class="scroll-card">
+              <h3>{{ 'No articles yet'|t }}</h3>
+              <p>{{ 'Publish articles to see them here.'|t }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="news">
+      <div class="container">
+        <div class="section-heading">
+          <p>{{ 'Newsroom'|t }}</p>
+          <h2>{{ 'Press releases and commentary'|t }}</h2>
+        </div>
+        <div class="card-grid card-grid--three">
+          {% for item in front_sections.press_releases %}
+            <article class="news-card">
+              <p>{{ item.eyebrow }}</p>
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              <p class="news-card__summary">{{ item.summary }}</p>
+            </article>
+          {% endfor %}
+          {% for item in front_sections.speeches %}
+            <article class="news-card">
+              <p>{{ item.eyebrow }}</p>
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              <p class="news-card__summary">{{ item.summary }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container section-container--gray" id="events">
+      <div class="container">
+        <div class="section-heading">
+          <p>{{ 'Upcoming'|t }}</p>
+          <h2>{{ 'Events and training'|t }}</h2>
+        </div>
+        <div class="events-list">
+          {% for item in front_sections.events %}
+            <a class="event-row" href="{{ item.url }}">
+              <time>{{ item.date }}</time>
+              <span class="event-row__title">{{ item.title }}</span>
+              {% if item.location %}
+                <span class="event-row__location">{{ item.location }}</span>
+              {% endif %}
+            </a>
+          {% else %}
+            <p class="events-list__empty">{{ 'No upcoming events.'|t }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="about">
+      <div class="container">
+        <div class="about-section__inner">
+          <h2>{{ 'About FXMedia Tech'|t }}</h2>
+          <p>{{ 'A satellite platform for cloud computing, cybersecurity, AI, and software engineering insights across Southeast Asia. Powered by AI-assisted search.'|t }}</p>
+        </div>
+      </div>
+    </section>
+
+    {% if page.content %}
+      <section class="section-container">
+        <div class="container">
+          {{ page.content }}
+        </div>
+      </section>
+    {% endif %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__simple">
+        <p>&copy; {{ 'now'|date('Y') }} {{ site_name ?: 'FXMedia Tech' }} - {{ 'AI-powered search enabled'|t }}</p>
+        <nav>
+          <a href="#articles">{{ 'Articles'|t }}</a>
+          <a href="#news">{{ 'News'|t }}</a>
+          <a href="#events">{{ 'Events'|t }}</a>
+          <a href="/ai-search">{{ 'AI Search'|t }}</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</div>

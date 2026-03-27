@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and schema hooks for Drupal AI Search.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function drupal_ai_search_schema(): array {
+  $schema['external_content_index'] = [
+    'description' => 'Index of external content for cross-site AI search.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'title' => [
+        'type' => 'varchar',
+        'length' => 512,
+        'not null' => TRUE,
+      ],
+      'description' => [
+        'type' => 'text',
+        'size' => 'medium',
+      ],
+      'url' => [
+        'type' => 'varchar',
+        'length' => 1024,
+        'not null' => TRUE,
+      ],
+      'source' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ],
+      'source_label' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+      ],
+      'content_type' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+      ],
+      'tags' => [
+        'type' => 'text',
+        'size' => 'medium',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'source' => ['source'],
+      'content_type' => ['content_type'],
+      'created' => ['created'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Creates the external content index table for existing installs.
+ */
+function drupal_ai_search_update_11001(): void {
+  $schema = drupal_ai_search_schema();
+  $database_schema = \Drupal::database()->schema();
+
+  if (!$database_schema->tableExists('external_content_index')) {
+    $database_schema->createTable('external_content_index', $schema['external_content_index']);
+  }
+}

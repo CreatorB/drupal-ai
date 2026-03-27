@@ -1,0 +1,14 @@
+opencode_api_key: ''
+opencode_endpoint: 'https://api.opencode.dev/v1'
+opencode_model: 'minimax-m2.5-free'
+opencode_fallback_model: 'mimo-v2-pro-free'
+provider_name: 'OpenCode'
+provider_site_url: 'https://primary.ddev.site'
+provider_app_name: 'Drupal AI Multisite Demo'
+opencode_embedding_model: 'text-embedding-3-small'
+enable_embeddings: true
+libretranslate_endpoint: 'http://localhost:5000'
+result_limit: 8
+cache_ttl: 3600
+api_timeout: 20
+search_prompt: 'Turn the user request into Drupal content filters and a short plain-language summary.'

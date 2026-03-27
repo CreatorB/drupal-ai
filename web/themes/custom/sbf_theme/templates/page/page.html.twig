@@ -1,0 +1,32 @@
+<div class="site-shell">
+  {%- include '@sbf_theme/includes/header-sbf.html.twig' with {
+    brand_markup: site_name ?: 'Drupal AI',
+    nav_items: [
+      { url: '/', label: 'Home' },
+      { url: '/about', label: 'About' },
+      { url: '/membership', label: 'Membership' },
+      { url: '/ai-search', label: 'AI Search' },
+      { url: '/admin/content', label: 'Content' },
+      { url: '/admin/reports/status', label: 'Status' }
+    ]
+  } only -%}
+
+  <main class="site-main">
+    {{ page.content }}
+  </main>
+
+  {%- include '@sbf_theme/includes/footer-sbf.html.twig' with {
+    footer_about_url: '/about',
+    footer_secondary_url: '/membership',
+    footer_secondary_label: 'Membership',
+    footer_news_url: '/admin/content',
+    footer_news_label: 'Latest Content',
+    footer_email_id: 'footer-email-global'
+  } only -%}
+
+  {% if enable_ai_chat_widget %}
+    {% include '@sbf_theme/includes/chat-widget.html.twig' %}
+  {% endif %}
+
+  {% include '@sbf_theme/includes/search-overlay.html.twig' %}
+</div>

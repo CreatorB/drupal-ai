@@ -1,0 +1,20 @@
+uuid: 743f8ac3-5c9c-4d98-8bf0-22d51f2fe6e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - drupal_personalized_widget
+  theme:
+    - sbf_theme
+id: sbf_theme_personalized_recommendations
+theme: sbf_theme
+region: content
+weight: 20
+provider: null
+plugin: personalized_recommendations_block
+settings:
+  id: personalized_recommendations_block
+  label: 'Personalized recommendations'
+  label_display: ''
+  provider: drupal_personalized_widget
+visibility: {  }

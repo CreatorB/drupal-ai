@@ -1,0 +1,37 @@
+# Environment
+.env
+.env.local
+.env.*.local
+tunnel-sites.json
+
+# DDEV generated
+.ddev/.importdb*
+.ddev/.webimageBuild/
+.ddev/.dbimageBuild/
+.ddev/.ddev-docker-compose-*.yaml
+.ddev/db_snapshots/
+
+# Composer dependencies
+vendor/
+
+# Drupal core and contrib (installed via Composer)
+web/core/
+web/libraries/
+web/modules/contrib/
+web/themes/contrib/
+
+# Drupal site files
+web/sites/*/files/*
+!web/sites/*/files/.gitkeep
+web/sites/simpletest/
+web/sites/phpunit/
+web/sites/.ht.private
+web/sites/default/settings.local.php
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

@@ -1,0 +1,9 @@
+tracking:
+  version: 1.x
+  js:
+    js/tracking.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once

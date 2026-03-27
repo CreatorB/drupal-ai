@@ -1,0 +1,13 @@
+<div class="basic-recs">
+  <h3>{{ 'Latest Articles'|t }}</h3>
+  <p class="basic-recs__note">{{ 'Showing newest articles only. No personalization or AI.'|t }}</p>
+  {% if items %}
+    <ul class="basic-recs__list">
+      {% for item in items %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>{{ 'No articles available.'|t }}</p>
+  {% endif %}
+</div>

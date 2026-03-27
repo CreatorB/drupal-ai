@@ -1,0 +1,15 @@
+drupal_basic_search.results:
+  path: '/ai-search'
+  defaults:
+    _controller: '\Drupal\drupal_basic_search\Controller\BasicSearchController::results'
+    _title: 'Keyword search'
+  requirements:
+    _permission: 'access content'
+
+drupal_basic_search.search_page:
+  path: '/search'
+  defaults:
+    _controller: '\Drupal\drupal_basic_search\Controller\BasicSearchController::results'
+    _title: 'Search'
+  requirements:
+    _permission: 'access content'

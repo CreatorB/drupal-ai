@@ -1,0 +1,11 @@
+display:
+  default:
+    display_title: Bawaan
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'Tidak ada komentar.'
+  block_1:
+    display_title: Blok
+    display_options:
+      block_category: 'Daftar (View)'

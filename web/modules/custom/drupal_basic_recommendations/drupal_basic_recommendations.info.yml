@@ -1,0 +1,5 @@
+name: Basic Recommendations
+type: module
+description: 'Shows latest articles as recommendations without AI or personalization tracking.'
+core_version_requirement: ^11
+package: FXMedia

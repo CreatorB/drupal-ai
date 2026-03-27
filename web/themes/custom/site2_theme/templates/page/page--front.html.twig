@@ -1,0 +1,128 @@
+<div class="site-shell site-shell--front">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/">{{ site_name ?: 'FXMedia Tech (No AI)' }}</a>
+      <nav class="site-nav" aria-label="{{ 'Primary navigation'|t }}">
+        <a href="#news">{{ 'News'|t }}</a>
+        <a href="#events">{{ 'Events'|t }}</a>
+        <a href="/search">{{ 'Search'|t }}</a>
+        <a href="#about">{{ 'About'|t }}</a>
+      </nav>
+      <button class="site-nav-toggle" type="button" data-nav-toggle>{{ 'Menu'|t }}</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section hero-section--bold">
+      <div class="hero-section__content">
+        <p class="hero-section__eyebrow">{{ 'Keyword Search Only'|t }}</p>
+        <h1>{{ 'FXMedia Tech'|t }}</h1>
+        <p class="hero-section__subtitle">{{ sbf_theme_meta.tagline }}</p>
+        <form class="hero-search" action="/search" method="get">
+          <label class="visually-hidden" for="hero-search-input">{{ 'Search'|t }}</label>
+          <input id="hero-search-input" type="search" name="q" placeholder="{{ 'Search by keyword...'|t }}">
+          <button type="submit">{{ 'Search'|t }}</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section-container" id="news">
+      <div class="container">
+        <div class="section-heading">
+          <p>{{ 'Latest'|t }}</p>
+          <h2>{{ 'Technology news'|t }}</h2>
+        </div>
+        <div class="card-grid card-grid--three">
+          {% for item in front_sections.articles %}
+            <article class="news-card">
+              <span class="news-card__tag">{{ item.eyebrow }}</span>
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              <p class="news-card__summary">{{ item.summary }}</p>
+              <time>{{ item.date }}</time>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container section-container--tint" id="press">
+      <div class="container">
+        <div class="section-heading">
+          <p>{{ 'Newsroom'|t }}</p>
+          <h2>{{ 'Press releases and commentary'|t }}</h2>
+        </div>
+        <div class="card-grid card-grid--two">
+          {% for item in front_sections.press_releases %}
+            <article class="news-card">
+              <span class="news-card__tag">{{ item.eyebrow }}</span>
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              <p class="news-card__summary">{{ item.summary }}</p>
+            </article>
+          {% endfor %}
+          {% for item in front_sections.speeches %}
+            <article class="news-card">
+              <span class="news-card__tag">{{ item.eyebrow }}</span>
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              <p class="news-card__summary">{{ item.summary }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="events">
+      <div class="container">
+        <div class="section-heading">
+          <p>{{ 'Upcoming'|t }}</p>
+          <h2>{{ 'Events and training'|t }}</h2>
+        </div>
+        <div class="card-scroll">
+          {% for item in front_sections.events %}
+            <article class="event-card">
+              <time>{{ item.date }}</time>
+              <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              {% if item.location %}
+                <p class="event-card__location">{{ item.location }}</p>
+              {% endif %}
+              <p>{{ item.summary }}</p>
+            </article>
+          {% else %}
+            <article class="event-card">
+              <h3>{{ 'No upcoming events'|t }}</h3>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="about">
+      <div class="container">
+        <div class="about-block__inner">
+          <h2>{{ 'About FXMedia Tech (No AI)'|t }}</h2>
+          <p>{{ 'Same IT dataset as Site 1, but with keyword-only search. Compare this experience to see what AI adds to content discovery.'|t }}</p>
+        </div>
+      </div>
+    </section>
+
+    {% if page.content %}
+      <section class="section-container">
+        <div class="container">
+          {{ page.content }}
+        </div>
+      </section>
+    {% endif %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__simple">
+        <p>&copy; {{ 'now'|date('Y') }} {{ site_name ?: 'FXMedia Tech (No AI)' }} - {{ 'Keyword search only'|t }}</p>
+        <nav>
+          <a href="#news">{{ 'News'|t }}</a>
+          <a href="#events">{{ 'Events'|t }}</a>
+          <a href="/search">{{ 'Search'|t }}</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</div>

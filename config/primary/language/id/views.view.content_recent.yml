@@ -1,0 +1,17 @@
+display:
+  default:
+    display_title: Bawaan
+    display_options:
+      fields:
+        changed:
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Terapkan
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
+          sort_desc_label: Desc
+      use_more_text: Selengkapnya
+  block_1:
+    display_title: Blok

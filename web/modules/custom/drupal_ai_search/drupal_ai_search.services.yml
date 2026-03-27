@@ -1,0 +1,16 @@
+services:
+  logger.channel.drupal_ai_search:
+    parent: logger.channel_base
+    arguments: ['drupal_ai_search']
+
+  drupal_ai_search.opencode_api:
+    class: Drupal\drupal_ai_search\Service\OpenCodeApiService
+    arguments: ['@http_client', '@config.factory', '@cache.default', '@logger.channel.drupal_ai_search']
+
+  drupal_ai_search.query_parser:
+    class: Drupal\drupal_ai_search\Service\QueryParserService
+    arguments: ['@drupal_ai_search.opencode_api']
+
+  drupal_ai_search.search_executor:
+    class: Drupal\drupal_ai_search\Service\SearchExecutorService
+    arguments: ['@entity_type.manager', '@entity.repository', '@date.formatter', '@database']

@@ -1,0 +1,171 @@
+<?php
+
+/**
+ * @file
+ * Theme helpers for the DrupalAI primary theme.
+ */
+
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function sbf_theme_preprocess_page(array &$variables): void {
+  $config = \Drupal::config('drupal_ai_search.settings');
+  $module_handler = \Drupal::moduleHandler();
+
+  $host = \Drupal::request()->getHost();
+  $siteBrandMap = [
+    'primary.ddev.site' => [
+      'site_label' => t('Primary Site'),
+      'site_message' => t('Flagship portal with full branding and content governance.'),
+      'brand_color' => '#d96f32',
+    ],
+    'site1.ddev.site' => [
+      'site_label' => t('Site1 Satellite'),
+      'site_message' => t('Regional news & insights for site1.'),
+      'brand_color' => '#004f79',
+    ],
+    'site2.ddev.site' => [
+      'site_label' => t('Site2 Satellite'),
+      'site_message' => t('Regional news & insights for site2.'),
+      'brand_color' => '#7f5600',
+    ],
+  ];
+
+  $siteBrand = $siteBrandMap[$host] ?? [
+    'site_label' => t('Drupal AI Multisite'),
+    'site_message' => t('Multisite demonstration platform.'),
+    'brand_color' => '#d96f32',
+  ];
+
+  $variables['sbf_theme_meta'] = [
+    'tagline' => t('Insights, events, and multilingual publishing in one Drupal 11 multisite platform.'),
+    'membership_title' => t('Build a polished client-ready showcase with AI search and recommendations.'),
+    'provider_name' => $config->get('provider_name') ?: 'OpenCode',
+    'provider_model' => $config->get('opencode_model') ?: 'minimax-m2.5-free',
+  ] + $siteBrand;
+
+  $variables['enable_ai_chat_widget'] = $module_handler->moduleExists('drupal_ai_search');
+  $variables['#attached']['library'][] = 'sbf_theme/search-overlay';
+  if ($variables['enable_ai_chat_widget']) {
+    $variables['#attached']['library'][] = 'sbf_theme/chat-widget';
+  }
+
+  if (!empty($variables['is_front'])) {
+    $variables['front_sections'] = [
+      'events' => sbf_theme_load_front_nodes('event', 9),
+      'training' => sbf_theme_load_front_nodes('event', 6, 'training'),
+      'articles' => sbf_theme_load_front_nodes('article', 9),
+      'press_releases' => sbf_theme_load_front_nodes('press_release', 6),
+      'speeches' => sbf_theme_load_front_nodes('speech_commentary', 6),
+    ];
+  }
+}
+
+/**
+ * Loads front page cards for a node type.
+ */
+function sbf_theme_load_front_nodes(string $bundle, int $limit = 3, ?string $event_type_filter = NULL): array {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $query = $storage->getQuery()
+    ->accessCheck(TRUE)
+    ->condition('status', 1)
+    ->condition('type', $bundle)
+    ->sort('created', 'DESC')
+    ->range(0, $limit);
+
+  if ($bundle === 'event' && $event_type_filter !== NULL) {
+    $term_ids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->getQuery()
+      ->accessCheck(TRUE)
+      ->condition('vid', 'event_type')
+      ->condition('name', $event_type_filter, '=')
+      ->execute();
+
+    if ($term_ids) {
+      $query->condition('field_event_type.target_id', array_values($term_ids), 'IN');
+    }
+  }
+
+  $nids = $query->execute();
+  if (!$nids) {
+    return [];
+  }
+
+  $items = [];
+  foreach ($storage->loadMultiple($nids) as $node) {
+    if (!$node instanceof NodeInterface) {
+      continue;
+    }
+
+    $items[] = [
+      'title' => $node->label(),
+      'url' => $node->toUrl()->toString(),
+      'summary' => sbf_theme_node_summary($node),
+      'date' => sbf_theme_node_date($node),
+      'eyebrow' => sbf_theme_node_eyebrow($node),
+      'location' => $node->hasField('field_event_location') && !$node->get('field_event_location')->isEmpty() ? $node->get('field_event_location')->value : '',
+    ];
+  }
+
+  return $items;
+}
+
+/**
+ * Builds a short display summary.
+ */
+function sbf_theme_node_summary(NodeInterface $node): string {
+  if ($node->hasField('field_summary_plain') && !$node->get('field_summary_plain')->isEmpty()) {
+    return $node->get('field_summary_plain')->value;
+  }
+
+  if ($node->hasField('field_event_description') && !$node->get('field_event_description')->isEmpty()) {
+    return text_summary($node->get('field_event_description')->value, $node->get('field_event_description')->format, 130);
+  }
+
+  if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+    return text_summary($node->get('body')->value, $node->get('body')->format, 130);
+  }
+
+  return '';
+}
+
+/**
+ * Builds a card eyebrow label.
+ */
+function sbf_theme_node_eyebrow(NodeInterface $node): string {
+  $map = [
+    'article' => 'Article',
+    'event' => 'Event',
+    'press_release' => 'Press Release',
+    'speech_commentary' => 'Speech / Commentary',
+  ];
+
+  if ($node->bundle() === 'event' && $node->hasField('field_event_type') && !$node->get('field_event_type')->isEmpty()) {
+    $term = $node->get('field_event_type')->entity;
+    if ($term) {
+      return $term->label();
+    }
+  }
+
+  return $map[$node->bundle()] ?? ucfirst(str_replace('_', ' ', $node->bundle()));
+}
+
+/**
+ * Builds a display date string.
+ */
+function sbf_theme_node_date(NodeInterface $node): string {
+  $timestamp = $node->getCreatedTime();
+
+  foreach (['field_event_date', 'field_release_date', 'field_speech_date', 'field_published_date'] as $field_name) {
+    if ($node->hasField($field_name) && !$node->get($field_name)->isEmpty()) {
+      $value = $node->get($field_name)->value;
+      if ($value) {
+        $timestamp = strtotime($value) ?: $timestamp;
+        break;
+      }
+    }
+  }
+
+  return \Drupal::service('date.formatter')->format($timestamp, 'custom', 'd M Y');
+}

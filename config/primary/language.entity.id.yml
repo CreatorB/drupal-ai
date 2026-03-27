@@ -1,0 +1,9 @@
+uuid: f622b24f-d792-4311-8eb7-95dcc118c5e2
+langcode: en
+status: true
+dependencies: {  }
+id: id
+label: Indonesian
+direction: ltr
+weight: 0
+locked: false

@@ -1,0 +1,11 @@
+uuid: 5cdf3ae2-6436-4db6-bb02-faea505fccb5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Speech / Commentary'
+type: speech_commentary
+description: 'Executive speeches and thought leadership content.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

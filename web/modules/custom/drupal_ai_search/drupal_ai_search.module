@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Drupal AI Search module hooks.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function drupal_ai_search_theme(): array {
+  return [
+    'ai_search_results' => [
+      'variables' => [
+        'query' => NULL,
+        'summary' => NULL,
+        'filters' => [],
+        'results' => [],
+        'ai_status' => NULL,
+        'ai_error' => NULL,
+        'search_mode' => 'ai',
+      ],
+      'template' => 'ai-search-results',
+    ],
+  ];
+}

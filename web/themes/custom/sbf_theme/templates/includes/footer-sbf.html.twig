@@ -1,0 +1,67 @@
+<footer class="site-footer-sbf">
+  <div class="site-footer-sbf__grid">
+    <div>
+      <h3>{{ 'More Information'|t }}</h3>
+      <ul>
+        <li><a href="{{ footer_about_url }}">{{ 'About'|t }}</a></li>
+        <li><a href="{{ footer_secondary_url }}">{{ footer_secondary_label|t }}</a></li>
+        <li><a href="{{ footer_news_url }}">{{ footer_news_label|t }}</a></li>
+        <li><a href="/ai-search">{{ 'AI Search'|t }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>{{ 'Operating Hours'|t }}</h3>
+      <ul>
+        <li>{{ 'Monday - Thursday'|t }}</li>
+        <li>{{ '8:45 am to 6:00 pm'|t }}</li>
+        <li>&nbsp;</li>
+        <li>{{ 'Friday'|t }}</li>
+        <li>{{ '8:45 am to 5:30 pm'|t }}</li>
+        <li>&nbsp;</li>
+        <li>{{ 'Closed on Weekends &'|t }}</li>
+        <li>{{ 'Public Holidays'|t }}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>{{ 'Newsletter'|t }}</h3>
+      <p class="footer-desc">{{ 'Subscribe to receive platform updates and editorial highlights.'|t }}</p>
+      <form class="footer-subscribe" onsubmit="return false">
+        <label class="visually-hidden" for="{{ footer_email_id }}">{{ 'Email address'|t }}</label>
+        <input id="{{ footer_email_id }}" type="email" placeholder="{{ 'Enter email address'|t }}">
+        <button type="submit">{{ 'Subscribe'|t }}</button>
+      </form>
+    </div>
+    <div class="footer-contact">
+      <h3>{{ 'Contact'|t }}</h3>
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.3!2d103.846!3d1.278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190f2a731573%3A0x6e3e8e2c7e3b3c8b!2s160%20Robinson%20Rd%2C%20Singapore%20068914!5e0!3m2!1sen!2ssg!4v1"
+          width="100%"
+          height="180"
+          style="border:0;border-radius:6px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="{{ 'Office location'|t }}">
+        </iframe>
+      </div>
+      <p class="footer-address">
+        <strong>{{ 'Address:'|t }}</strong><br>
+        {{ '160 Robinson Road #06-01'|t }}<br>
+        {{ 'Business Center, Singapore 068914'|t }}<br>
+        <a href="https://www.google.com/maps/place/160+Robinson+Rd,+Singapore+068914" target="_blank" rel="noopener noreferrer">{{ '(Getting here)'|t }}</a>
+      </p>
+      <p class="footer-phone">
+        {{ 'Tel: 6827 6828'|t }}<br>
+        <a href="mailto:info@example.com">{{ 'Or send us your enquiry here'|t }}</a>
+      </p>
+    </div>
+  </div>
+  <div class="site-footer-sbf__bottom">
+    <p>&copy; {{ 'now'|date('Y') }} Drupal AI Multisite Platform. {{ 'All Rights Reserved.'|t }}</p>
+    <nav>
+      <a href="#">{{ 'Privacy Policy'|t }}</a>
+      <a href="#">{{ 'Terms of Use'|t }}</a>
+    </nav>
+  </div>
+</footer>

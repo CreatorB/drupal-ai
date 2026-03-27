@@ -1,0 +1,38 @@
+drupal_ai_search.results:
+  path: '/ai-search'
+  defaults:
+    _controller: '\Drupal\drupal_ai_search\Controller\AiSearchController::results'
+    _title: 'AI search'
+  requirements:
+    _permission: 'access content'
+
+drupal_ai_search.search_page:
+  path: '/search'
+  defaults:
+    _controller: '\Drupal\drupal_ai_search\Controller\AiSearchController::results'
+    _title: 'Search'
+  requirements:
+    _permission: 'access content'
+
+drupal_ai_search.api:
+  path: '/ai-search-api'
+  defaults:
+    _controller: '\Drupal\drupal_ai_search\Controller\AiSearchController::apiResults'
+  requirements:
+    _access: 'TRUE'
+
+drupal_ai_search.settings:
+  path: '/admin/config/services/drupal-ai-search'
+  defaults:
+    _form: '\Drupal\drupal_ai_search\Form\AiSearchConfigForm'
+    _title: 'Drupal AI search settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+drupal_ai_search.settings_alias:
+  path: '/admin/config/services/ai-integration'
+  defaults:
+    _form: '\Drupal\drupal_ai_search\Form\AiSearchConfigForm'
+    _title: 'AI integration settings'
+  requirements:
+    _permission: 'administer site configuration'

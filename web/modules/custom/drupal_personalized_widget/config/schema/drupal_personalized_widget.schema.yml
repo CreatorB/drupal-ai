@@ -1,0 +1,10 @@
+drupal_personalized_widget.settings:
+  type: config_object
+  label: 'Drupal Personalized Widget settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    block_limit:
+      type: integer
+      label: 'Block item limit'

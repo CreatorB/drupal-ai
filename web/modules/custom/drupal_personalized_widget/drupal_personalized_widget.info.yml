@@ -1,0 +1,7 @@
+name: Drupal Personalized Widget
+type: module
+description: Adds a showcase personalized recommendations block and tracking endpoint.
+package: FXMedia
+core_version_requirement: ^11
+dependencies:
+  - drupal:node

@@ -1,0 +1,22 @@
+<section class="personalized-recommendations">
+  <div class="personalized-recommendations__header">
+    <p>{{ 'Recommended for you'|t }}</p>
+    <h2>{{ 'Continue exploring related insights'|t }}</h2>
+  </div>
+
+  {% if items is empty %}
+    <p>{{ 'Recommendations will appear after visitors begin reading content.'|t }}</p>
+  {% else %}
+    <div class="personalized-recommendations__grid">
+      {% for item in items %}
+        <article class="personalized-recommendations__item">
+          <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+          {% if item.summary %}
+            <p>{{ item.summary }}</p>
+          {% endif %}
+          <time datetime="{{ item.date|date('c') }}">{{ item.date|date('d M Y') }}</time>
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>

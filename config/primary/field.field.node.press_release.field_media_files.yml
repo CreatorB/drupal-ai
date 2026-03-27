@@ -1,0 +1,27 @@
+uuid: a2f3996b-7693-4da3-9f9b-4e7cc61a68ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_files
+    - node.type.press_release
+  module:
+    - file
+id: node.press_release.field_media_files
+field_name: field_media_files
+entity_type: node
+bundle: press_release
+label: 'Media Files'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx jpg jpeg png'
+  max_filesize: ''
+  description_field: false
+field_type: file

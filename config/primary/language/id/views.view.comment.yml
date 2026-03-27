@@ -1,0 +1,89 @@
+label: Komentar
+display:
+  default:
+    display_title: Bawaan
+    display_options:
+      title: Komentar
+      fields:
+        comment_bulk_form:
+          action_title: Tindakan
+        subject:
+          label: Judul
+          separator: ', '
+        uid:
+          separator: ', '
+        name:
+          label: Penulis
+          separator: ', '
+        entity_id:
+          label: Dalam
+          separator: ', '
+        changed:
+          label: Diperbaharui
+          separator: ', '
+        operations:
+          label: Operasi
+        name_1:
+          separator: ', '
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: 'Tidak ada komentar.'
+      filters:
+        subject:
+          expose:
+            label: Judul
+        combine:
+          expose:
+            label: 'Nama penulis'
+        langcode:
+          expose:
+            label: Bahasa
+      use_more_text: selengkapnya
+  page_published:
+    display_title: 'Komentar yang diterbitkan'
+    display_options:
+      menu:
+        title: Komentar
+  page_unapproved:
+    display_options:
+      fields:
+        comment_bulk_form:
+          action_title: Tindakan
+        subject:
+          label: Judul
+          separator: ', '
+        uid:
+          separator: ', '
+        name:
+          label: Penulis
+          separator: ', '
+        entity_id:
+          label: Dalam
+          separator: ', '
+        changed:
+          label: Diperbaharui
+          separator: ', '
+        operations:
+          label: Operasi
+        name_1:
+          separator: ', '
+      filters:
+        subject:
+          expose:
+            label: Judul
+        langcode:
+          expose:
+            label: Bahasa

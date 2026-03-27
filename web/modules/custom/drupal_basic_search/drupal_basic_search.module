@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Drupal Basic Search module hooks.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function drupal_basic_search_theme(): array {
+  return [
+    'basic_search_results' => [
+      'variables' => [
+        'query' => NULL,
+        'summary' => NULL,
+        'filters' => [],
+        'results' => [],
+      ],
+      'template' => 'basic-search-results',
+    ],
+  ];
+}

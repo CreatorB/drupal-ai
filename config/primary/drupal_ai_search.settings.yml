@@ -1,0 +1,13 @@
+_core:
+  default_config_hash: 5CFU0_nS-fu3ENB2M0_4nPoI84np7gO3co014MujGTs
+opencode_api_key: ''
+opencode_endpoint: 'https://api.opencode.dev/v1'
+opencode_model: minimax-m2.5-free
+opencode_fallback_model: mimo-v2-pro-free
+libretranslate_endpoint: 'http://localhost:5000'
+result_limit: 8
+search_prompt: 'Turn the user request into Drupal content filters and a short plain-language summary.'
+opencode_embedding_model: text-embedding-3-small
+enable_embeddings: true
+cache_ttl: 3600
+api_timeout: 20

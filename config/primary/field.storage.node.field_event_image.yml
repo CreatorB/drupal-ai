@@ -1,0 +1,25 @@
+uuid: ed9f3f5a-c011-4fd1-86c2-7f6c97a8cdc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - node
+id: node.field_event_image
+field_name: field_event_image
+entity_type: node
+type: image
+settings:
+  target_type: file
+  display_field: false
+  display_default: true
+  uri_scheme: public
+  default_image: {  }
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

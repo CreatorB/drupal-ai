@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Drupal Personalized Widget hooks.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function drupal_personalized_widget_theme(): array {
+  return [
+    'personalized_recommendations_block' => [
+      'variables' => [
+        'items' => [],
+      ],
+      'template' => 'personalized-recommendations-block',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function drupal_personalized_widget_page_attachments(array &$attachments): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node || $node->bundle() !== 'article') {
+    return;
+  }
+
+  $attachments['#attached']['library'][] = 'drupal_personalized_widget/tracking';
+  $attachments['#attached']['drupalSettings']['personalizedWidget'] = [
+    'nodeId' => (int) $node->id(),
+  ];
+}

@@ -1,0 +1,19 @@
+uuid: 43ec7d15-adc3-444e-a22b-912a635f162c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary_plain
+    - node.type.article
+id: node.article.field_summary_plain
+field_name: field_summary_plain
+entity_type: node
+bundle: article
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

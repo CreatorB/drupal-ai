@@ -1,0 +1,5 @@
+name: Drupal Basic Search
+type: module
+description: Provides a keyword-only search experience for multisite comparisons.
+package: FXMedia
+core_version_requirement: ^11

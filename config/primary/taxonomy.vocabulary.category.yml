@@ -1,0 +1,9 @@
+uuid: f6ad2813-b5a5-49af-9c9b-546024aa64b7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Article Category'
+vid: category
+description: 'Article Category vocabulary'
+weight: 0
+new_revision: false

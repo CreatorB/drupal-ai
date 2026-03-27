@@ -1,0 +1,24 @@
+uuid: 5270bd72-5771-4c85-a1c2-88772fa96247
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_category
+    - node.type.event
+    - taxonomy.vocabulary.category
+id: node.event.field_event_category
+field_name: field_event_category
+entity_type: node
+bundle: event
+label: Category
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      category: category
+field_type: entity_reference

@@ -1,0 +1,12 @@
+services:
+  drupal_personalized_widget.user_tracking:
+    class: Drupal\drupal_personalized_widget\Service\UserTrackingService
+    arguments: ['@database', '@current_user', '@request_stack']
+
+  drupal_personalized_widget.embedding_service:
+    class: Drupal\drupal_personalized_widget\Service\EmbeddingService
+    arguments: ['@database', '@drupal_ai_search.opencode_api']
+
+  drupal_personalized_widget.recommendation_engine:
+    class: Drupal\drupal_personalized_widget\Service\RecommendationEngine
+    arguments: ['@database', '@current_user', '@request_stack', '@entity_type.manager', '@drupal_personalized_widget.embedding_service']

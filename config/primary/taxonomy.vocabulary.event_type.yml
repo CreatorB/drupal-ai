@@ -1,0 +1,9 @@
+uuid: 485b92d3-e83e-4300-82e9-5a22c65c830b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Type'
+vid: event_type
+description: 'Event Type vocabulary'
+weight: 0
+new_revision: false

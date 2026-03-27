@@ -1,0 +1,7 @@
+drupal_personalized_widget.tracking:
+  path: '/api/tracking/page-view'
+  defaults:
+    _controller: '\Drupal\drupal_personalized_widget\Controller\TrackingController::track'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'

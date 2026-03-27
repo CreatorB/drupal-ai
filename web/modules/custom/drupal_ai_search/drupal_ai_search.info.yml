@@ -1,0 +1,8 @@
+name: Drupal AI Search
+type: module
+description: Provides OpenCode-powered natural language search helpers for the Drupal AI multisite demo.
+package: FXMedia
+core_version_requirement: ^11
+configure: drupal_ai_search.settings
+dependencies:
+  - drupal:search_api

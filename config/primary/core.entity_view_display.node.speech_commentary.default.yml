@@ -1,0 +1,64 @@
+uuid: 8ca3b356-936e-4dbf-a8fe-7eaec718a364
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.speech_commentary.field_event_occasion
+    - field.field.node.speech_commentary.field_speaker_name
+    - field.field.node.speech_commentary.field_speech_date
+    - field.field.node.speech_commentary.field_speech_image
+    - image.style.large
+    - node.type.speech_commentary
+  module:
+    - datetime
+    - image
+    - user
+id: node.speech_commentary.default
+targetEntityType: node
+bundle: speech_commentary
+mode: default
+content:
+  field_event_occasion:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_speaker_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_speech_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_speech_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

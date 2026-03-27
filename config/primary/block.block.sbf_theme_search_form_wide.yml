@@ -1,0 +1,23 @@
+uuid: e4ccbb90-2c89-4fe4-be9d-e4aca1a9e084
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - sbf_theme
+_core:
+  default_config_hash: pbbed0hdqGDF-_QWVVTWRAwgDIotFuAvWH5mWUZu0fA
+id: sbf_theme_search_form_wide
+theme: sbf_theme
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

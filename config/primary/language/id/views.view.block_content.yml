@@ -1,0 +1,45 @@
+label: 'Blok konten'
+display:
+  default:
+    display_title: Bawaan
+    display_options:
+      title: 'Blok konten'
+      fields:
+        info:
+          label: 'Deskripsi blok'
+          separator: ', '
+        type:
+          label: 'Jenis blok'
+          separator: ', '
+        changed:
+          label: Diperbaharui
+        operations:
+          label: Operasi
+      pager:
+        options:
+          tags:
+            next: 'Selanjutnya ›'
+            previous: '‹ Sebelumya'
+          expose:
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
+      exposed_form:
+        options:
+          submit_button: Terapkan
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
+          sort_desc_label: Desc
+      filters:
+        info:
+          expose:
+            label: 'Deskripsi blok'
+        type:
+          expose:
+            label: 'Jenis blok'
+  page_1:
+    display_title: Halaman
+    display_options:
+      menu:
+        title: Blok

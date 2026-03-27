@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+function site1_theme_preprocess_page(array &$variables): void {
+  $config = \Drupal::config('drupal_ai_search.settings');
+
+  $variables['site_name'] = 'FXMedia Tech';
+  $variables['sbf_theme_meta'] = [
+    'tagline' => t('Cloud, cybersecurity, AI, and software engineering insights for Southeast Asia.'),
+    'membership_title' => t('Stay ahead with technology trends and developer community updates.'),
+    'provider_name' => $config->get('provider_name') ?: '',
+    'provider_model' => $config->get('opencode_model') ?: '',
+  ];
+
+  if (!empty($variables['is_front'])) {
+    $variables['front_sections'] = [
+      'events' => sbf_theme_load_front_nodes('event', 4),
+      'training' => sbf_theme_load_front_nodes('event', 3, 'training'),
+      'articles' => sbf_theme_load_front_nodes('article', 6),
+      'press_releases' => sbf_theme_load_front_nodes('press_release', 3),
+      'speeches' => sbf_theme_load_front_nodes('speech_commentary', 3),
+    ];
+  }
+}

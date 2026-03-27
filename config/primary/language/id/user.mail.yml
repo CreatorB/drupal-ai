@@ -1,0 +1,26 @@
+cancel_confirm:
+  subject: 'Permintaan pembatalan untuk akun [user:display-name] pada [site:name]'
+password_reset:
+  subject: 'Penggantian informasi masuk untuk [user:display-name] pada [site:name]'
+  body: "[user:display-name],\r\n\r\nPermintaan penggatian kata sandi untuk akun Anda telah dibuat pada [site:name].\r\n\r\nAnda dapat masuk dengan klik tautan atau salin lalu tempel pada peramban Anda:\r\n[user:one-time-login-url]\r\n\r\nTautan ini hanya dapat digunakan sekali untuk masuk dan membawa Anda ke laman tempat mengganti kata sandi Anda. Ini akan kadar luasa setelah satu hari dan tidak akan terjadi apa-apa jika tidak digunakan.\r\n\r\n--  Tim [site:name]"
+register_admin_created:
+  subject: 'Administrator membuat akun untuk Anda di [site:name]'
+  body: "[user:display-name],\r\n\r\nAdministrator situs [site:name] telah membuat sebuah akun untuk anda. Anda dapat masuk dengan mengklik tautan ini atau salin dan tempel ke peramban Anda:\r\n\r\n[user:one-time-login-url]\r\n\r\nTautan ini hanya bisa digunakan sekali saja untuk masuk log dan akan menuntun Anda ke halaman dimana Anda bisa menyetel sandi Anda.\r\n\r\nSetelah menyetel sandi Anda, Anda akan bisa masuk pada [site:login-url] dikemudian hari menggunakan:\r\n\r\nnama pengguna: [user:name]\r\nsandi: Your password\r\n\r\n--  Tim [site:name]"
+register_no_approval_required:
+  subject: 'Detail akun dari [user:display-name] pada [site:name]'
+  body: "[user:display-name],\r\n\r\nTerimakasih telah mendaftar di [site:name]. Sekarang Anda sudah bisa log in dengan meng-klik tautan dibawah ini atau meng-copy-paste tautan dibawah ini ke browser Anda:\r\n\r\n[user:one-time-login-url]\r\n\r\nTautan ini hanya dapat digunakan untuk satu kali log in dan akan membimbing Anda ke halaman dimana Anda bisa mengatur sandi milik Anda.\r\n\r\nSetelah mengatur sandi milik Anda, nantinya Anda dapat log in di [site:login-url] menggunakan:\r\n\r\nusername: [user:name]\r\npassword: Sandi milik Anda\r\n\r\n--  Tim [site:name]"
+register_pending_approval:
+  subject: 'Detil akun [user:display-name] di [site:name] (menunggu persetujuan admin)'
+  body: "[user:display-name],\r\n\r\nTerima kasih telah mendaftar di [site:name]. Aplikasi Anda untuk akun saat ini sedang menunggu persetujuan. Setelah disetujui, Anda akan menerima email lain yang berisi informasi tentang cara masuk, mengatur kata sandi, dan detail lainnya.\r\n\r\n--  Tim [site:name]"
+register_pending_approval_admin:
+  subject: 'Detil akun [user:display-name] di [site:name] (menunggu persetujuan admin)'
+  body: "[user:display-name] telah diaplikasikan untuk akun.\r\n\r\n[user:edit-url]"
+status_activated:
+  subject: 'Detil akun untuk [user:display-name] di [site:name] (disetujui)'
+  body: "[user:display-name],\r\n\r\nAkun Anda pada [site:name] telah diaktivasi\r\n\r\nAnda dapat masuk dengan klik tautan atau salin lalu tempel pada peramban Anda:\r\n\r\n[user:one-time-login-url]\r\n\r\nTautan ini hanya dapat digunakan sekali untuk masuk dan membawa Anda ke laman berisi tempat pengaturan kata sandi Anda.\r\n\r\nSetelah mengatur kata sandi Anda, kedepannya Anda dapat masuk pada [site:login-url] dengan menggunakan:\r\n\r\nnama pengguna: [user:account-name]\r\nkata sandi: Kata sandi Anda\r\n\r\n--  Tim [site:name]"
+status_blocked:
+  subject: 'Detil akun untuk [user:display-name] di [site:name] (diblokir)'
+  body: "[user:display-name],\r\n\r\nAkun anda di [site:name] telah diblokir.\r\n\r\n--  [site:name] team"
+status_canceled:
+  subject: 'Detil akun untuk [user:display-name] di [site:name] (dibatalkan)'
+  body: "[user:display-name],\r\n\r\nAkun Anda di [site:name] telah dibatalkan.\r\n\r\n--  [site:name] team"

@@ -1,0 +1,33 @@
+uuid: b27a1fdf-820b-451a-b6ae-9631f7b998fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_speech_image
+    - node.type.speech_commentary
+  module:
+    - image
+id: node.speech_commentary.field_speech_image
+field_name: field_speech_image
+entity_type: node
+bundle: speech_commentary
+label: 'Featured Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image: {  }
+field_type: image

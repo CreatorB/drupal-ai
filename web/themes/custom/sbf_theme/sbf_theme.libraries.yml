@@ -1,0 +1,42 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      css/base.css: {}
+      css/layout.css: {}
+      css/components/header.css: {}
+      css/components/hero.css: {}
+      css/components/sections.css: {}
+      css/components/cards.css: {}
+      css/components/footer.css: {}
+      css/responsive.css: {}
+  js:
+    js/navigation.js: {}
+    js/carousel.js: {}
+    js/tabs.js: {}
+    js/search.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+chat-widget:
+  version: 1.x
+  css:
+    theme:
+      css/components/chat-widget.css: {}
+  js:
+    js/chat-widget.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+search-overlay:
+  version: 1.x
+  css:
+    theme:
+      css/components/search-overlay.css: {}
+  js:
+    js/search-overlay.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

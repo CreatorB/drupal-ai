@@ -1,0 +1,71 @@
+label: Pengguna
+display:
+  default:
+    display_title: Bawaan
+    display_options:
+      title: Pengguna
+      fields:
+        user_bulk_form:
+          label: 'Pemutakhiran masal'
+        name:
+          label: 'Nama pengguna'
+        status:
+          label: Status
+          settings:
+            format_custom_false: Diblokir
+            format_custom_true: Aktif
+        roles_target_id:
+          label: Peran
+        created:
+          label: 'Anggota selama'
+        access:
+          label: 'Akses terakhir'
+        operations:
+          label: Operasi
+        mail:
+          separator: ', '
+      pager:
+        options:
+          tags:
+            next: 'Selanjutnya ›'
+            previous: '‹ Sebelumya'
+            first: '« Pertama'
+            last: 'Terakhir »'
+          expose:
+            items_per_page_label: 'Jumlah item per halaman'
+            items_per_page_options_all_label: '- Semua -'
+            offset_label: Letak
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sortir dengan'
+          sort_asc_label: 'Urutan turun'
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: 'Tidak tersedia orang.'
+      filters:
+        status:
+          group_info:
+            label: Status
+            group_items:
+              1:
+                title: Aktif
+              2:
+                title: Diblokir
+        roles_target_id:
+          expose:
+            label: Peran
+        permission:
+          expose:
+            label: Kewenangan
+      use_more_text: selengkapnya
+  page_1:
+    display_title: Halaman
+    display_options:
+      menu:
+        title: Daftar
+      tab_options:
+        title: Pengguna
+        description: 'Kelola profil pengguna, pemeran dan kewenangan.'

@@ -1,0 +1,5 @@
+drupal_ai_search.settings:
+  title: 'Drupal AI search'
+  description: 'Configure OpenCode AI search settings.'
+  parent: system.admin_config_services
+  route_name: drupal_ai_search.settings

@@ -1,0 +1,56 @@
+<section class="ai-search-page">
+  <div class="ai-search-page__bar">
+    <form action="/ai-search" class="ai-search-page__form" method="get">
+      <label class="visually-hidden" for="basic-search-query">{{ 'Search query'|t }}</label>
+      <input id="basic-search-query" type="search" name="q" value="{{ query }}" placeholder="{{ 'Search articles, events, speeches...'|t }}">
+      <button type="submit">{{ 'Search'|t }}</button>
+    </form>
+  </div>
+
+  {% if query %}
+    <div class="ai-search-page__mode-toggle">
+      <span class="mode-badge mode-badge--ai">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1s-2.73 7.08 0 9.79c2.73 2.71 7.15 2.71 9.88 0A6.99 6.99 0 0 0 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.49 12.65 0L21 3v7.12z"/></svg>
+        {{ 'AI Mode'|t }}
+      </span>
+      <span class="mode-badge mode-badge--keyword is-active">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        {{ 'Keyword Mode'|t }}
+      </span>
+    </div>
+
+    <div class="ai-search-page__notice">
+      {{ 'This site uses keyword-only search so you can compare it directly with the AI-powered version on Site 1.'|t }}
+    </div>
+
+    {% if summary %}
+      <p class="ai-search-page__summary">{{ summary }}</p>
+    {% endif %}
+
+    <div class="ai-search-page__filters">
+      <span>{{ 'Keywords'|t }}: {{ filters.keywords ?: '-' }}</span>
+      <span>{{ 'Type'|t }}: {{ filters.content_type ?: 'any'|t }}</span>
+      <span>{{ 'Language'|t }}: {{ filters.language ?: 'any'|t }}</span>
+    </div>
+  {% else %}
+    <p class="ai-search-page__summary">{{ 'Type a keyword or short phrase to search your content.'|t }}</p>
+  {% endif %}
+
+  <div class="ai-search-page__results">
+    {% if query %}
+      <p class="ai-search-page__count">{{ results|length }} {{ 'results found'|t }}</p>
+    {% endif %}
+    {% if results is empty and query %}
+      <p class="ai-search-page__empty">{{ 'No matching content found. Try a different query.'|t }}</p>
+    {% else %}
+      {% for item in results %}
+        <article class="ai-search-result">
+          <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+          {% if item.summary %}
+            <p>{{ item.summary }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>

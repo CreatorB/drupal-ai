@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+function site2_theme_preprocess_page(array &$variables): void {
+  $variables['site_name'] = 'FXMedia Tech (No AI)';
+  $variables['sbf_theme_meta'] = [
+    'tagline' => t('Same IT content, keyword-only search. Compare this experience with Site 1 (AI-powered).'),
+    'membership_title' => t('Compare how keyword search behaves against the AI-assisted site.'),
+    'provider_name' => '',
+    'provider_model' => '',
+  ];
+
+  if (!empty($variables['is_front'])) {
+    $variables['front_sections'] = [
+      'events' => sbf_theme_load_front_nodes('event', 4),
+      'training' => sbf_theme_load_front_nodes('event', 3, 'training'),
+      'articles' => sbf_theme_load_front_nodes('article', 6),
+      'press_releases' => sbf_theme_load_front_nodes('press_release', 3),
+      'speeches' => sbf_theme_load_front_nodes('speech_commentary', 3),
+    ];
+  }
+}

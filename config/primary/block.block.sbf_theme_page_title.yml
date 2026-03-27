@@ -1,0 +1,20 @@
+uuid: c1c87059-f566-4252-9c02-dee9c3626631
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sbf_theme
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: sbf_theme_page_title
+theme: sbf_theme
+region: header
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
