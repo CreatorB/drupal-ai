@@ -208,10 +208,3 @@ Admin UI:
 
 - [INSTALL.md](INSTALL.md)
 - [CONFIGURATION.md](CONFIGURATION.md)
-- [DEMO-GUIDE.md](DEMO-GUIDE.md)
-- [PERSONAL-GUIDE-EN.md](PERSONAL-GUIDE-EN.md)
-- [PERSONAL-GUIDE-ID.md](PERSONAL-GUIDE-ID.md)
-
-## License
-
-Proprietary. All rights reserved.
