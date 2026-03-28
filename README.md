@@ -210,6 +210,12 @@ share-all-sites.cmd
 configure-tunnels.cmd
 ```
 
+## Cloudflare Tunnel
+
+```bash
+& "$env:LOCALAPPDATA\Programs\DDEV\ddev.exe" share --provider=cloudflared
+```
+
 ## Demo Proof Queries
 
 ### Primary
