@@ -1,6 +1,50 @@
 # Drupal AI Multisite Platform
 
-A Drupal 11 multisite platform with AI-powered natural language search, a cross-site search hub, a floating AI chat assistant, and personalized content recommendations.
+A Drupal 11 multisite platform with AI-powered natural language search, cross-site content discovery, a conversational AI chat assistant, and personalized content recommendations.
+
+**Video Demo**: [Watch on YouTube](https://youtu.be/surOHPOjU7Q)
+
+## The Flow 🤘
+
+── How AI Search Works ──
+
+1. User types a natural language query (e.g. "show me latest articles about green bonds")
+2. The query is sent to an LLM (Groq / Llama 3.3 70B) via OpenAI-compatible API
+3. The AI parses the user's INTENT — not keywords — and returns structured filters:
+   • keywords: green, bonds, esg
+   • content_type: article
+   • sort: latest
+4. Drupal Search API executes a database query using those AI-extracted filters
+5. Results include local content + cross-site content from SBF.org.sg and satellite sites
+6. A keyword-only comparison site (Site 2) proves the difference — same data, no AI, fewer relevant results
+
+The AI does NOT access the database directly. It only understands what the user means. Drupal handles the actual data retrieval.
+
+── How Personalized Recommendations Work ──
+
+1. JavaScript tracks user reading behavior on every article page:
+   • Which article was read
+   • How long the user stayed (time in seconds)
+   • How far they scrolled (scroll depth 0-100%)
+2. This data is stored per user session in a reading history table
+3. When the user visits another article, the Recommendation Engine:
+   • Retrieves their last 20 reading history entries
+   • Excludes articles already read
+   • Returns up to 6 unread articles as personalized suggestions
+4. A comparison site (Site 2) shows "Latest Articles" — the same 6 newest articles for everyone, with no tracking or personalization
+
+── Platform Architecture ──
+
+• 1 Drupal 11 codebase → 3 branded sites (finance, technology x2)
+• Site 1: AI search + personalized recommendations
+• Site 2: Keyword search + basic recommendations (same content, for comparison)
+• Primary: Cross-site AI search hub + AI chat widget + SBF.org.sg content index
+• Provider-flexible: works with any OpenAI-compatible LLM service
+• Multilingual-ready: English + Indonesian
+
+── Tech Stack ──
+
+Drupal 11.3.5 | PHP 8.3 | MySQL 8.0 | Groq (Llama 3.3 70B) | DDEV
 
 ## Overview
 
@@ -206,5 +250,6 @@ Admin UI:
 
 ## Additional Documentation
 
-- [INSTALL.md](INSTALL.md)
-- [CONFIGURATION.md](CONFIGURATION.md)
+- [INSTALL.md](INSTALL.md) -- Step-by-step installation
+- [CONFIGURATION.md](CONFIGURATION.md) -- Environment and provider setup
+- [Video Demo](https://youtu.be/surOHPOjU7Q) -- Full platform walkthrough on YouTube
