@@ -121,6 +121,7 @@
 }
 
 /* Search icon: plain, no circle background */
+/* Desktop search icon (inside utils) */
 .search-link {
   display: inline-flex;
   align-items: center;
@@ -129,6 +130,11 @@
   height: 34px;
   background: transparent !important;
   color: var(--sbf-navy) !important;
+}
+
+/* Mobile search icon: hidden on desktop, shown on mobile via media query */
+.search-link--mobile {
+  display: none;
 }
 
 .search-link:hover {
@@ -162,10 +168,25 @@
     display: none;
   }
 
+  /* Show search icon on mobile, next to hamburger */
+  .search-link--mobile {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-left: auto;
+    background: transparent;
+    color: var(--sbf-navy);
+    border: 0;
+    padding: 0;
+  }
+
   .site-nav-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-left: 0.5rem;
   }
 
   .site-nav.is-open {
